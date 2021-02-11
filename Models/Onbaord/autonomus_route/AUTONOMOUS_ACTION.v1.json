@@ -1,0 +1,76 @@
+{
+  "title": "AUTONOMOUS_ACTION",
+  "type": "object",
+  "x-examples": {
+    "example-1": {
+      "actionId": "action-id-1",
+      "actionFor": "Gimbal",
+      "type": "Scan",
+      "startConditions": {
+        "velocity": 5,
+        "altitude": 50,
+        "timeFromRelativeAction": 10,
+        "pointReached": true,
+        "relWithAction": "startToStart",
+        "relativeActionId": "string"
+      },
+      "endConditions": {
+        "velocity": 5,
+        "altitude": 50,
+        "timeFromRelativeAction": 10,
+        "pointReached": true,
+        "relWithAction": "startToStart",
+        "relativeActionId": "string"
+      },
+      "action": {
+        "startScanYaw": 0,
+        "finishScanYaw": 90,
+        "relType": "North",
+        "pitch": 0
+      }
+    }
+  },
+  "properties": {
+    "actionId": {
+      "type": "string",
+      "example": "action-id-1"
+    },
+    "actionFor": {
+      "type": "string",
+      "enum": [
+        "Vehicle",
+        "Gimbal",
+        "Camera",
+        "Sensor"
+      ],
+      "example": "Gimbal"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "maneuver",
+        "Scan"
+      ],
+      "example": "Scan"
+    },
+    "startConditions": {
+      "$ref": "./ACTION_CONDITIONS.v1.json"
+    },
+    "endConditions": {
+      "$ref": "./ACTION_CONDITIONS.v1.json"
+    },
+    "action": {
+      "oneOf": [
+        {
+          "$ref": "./SCAN_ACTION_PARAMETERS.v1.json"
+        },
+        {
+          "$ref": "./GIMBAL_ACTION_PARAMETERS.v1.json"
+        },
+        {
+          "$ref": "./WAYPOINTS_ACTION_PARAMETERS.v1.json"
+        }
+      ]
+    }
+  }
+}

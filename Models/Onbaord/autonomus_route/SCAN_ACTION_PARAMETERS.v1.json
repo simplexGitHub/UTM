@@ -1,0 +1,25 @@
+{
+  "title": "SCAN_ACTION_PARAMETERS",
+  "type": "object",
+  "properties": {
+    "startScanYaw": {
+      "type": "number",
+      "example": 0
+    },
+    "finishScanYaw": {
+      "type": "number",
+      "example": 90
+    },
+    "relType": {
+      "type": "string",
+      "enum": [
+        "North",
+        "Body"
+      ],
+      "example": "North"
+    },
+    "pitch": {
+      "type": "number"
+    }
+  }
+}

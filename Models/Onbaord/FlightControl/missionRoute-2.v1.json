@@ -1,0 +1,397 @@
+{
+  "title": "missionRoute",
+  "type": "object",
+  "description": "Describes the mission route as waypoints and action for each point",
+  "x-examples": {
+    "example-1": {
+      "todo": null,
+      "wypoints": [
+        {
+          "geoPoint": {
+            "lat": -90,
+            "lon": -180,
+            "alt": 0
+          },
+          "relativeAlt": 0,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "headingType": "Auto",
+          "velocity": 0,
+          "POI": {
+            "geoPoint": {
+              "lat": -90,
+              "lon": -180,
+              "alt": 0
+            },
+            "relativeAlt": 0
+          },
+          "actions": [
+            {
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "action": {
+                "startScanYaw": 0,
+                "finishScanYaw": 0,
+                "relType": "North",
+                "pitch": 0
+              },
+              "startConditions": {
+                "velocity": 0
+              },
+              "actionId": "string",
+              "endConditions": {
+                "velocity": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "example-3": {
+      "todo": null,
+      "routeId": "abcdef",
+      "totalValue": 200,
+      "actionPoints": [
+        {
+          "geoPoint": {
+            "lat": 32.5,
+            "lon": 34.5,
+            "alt": 0
+          },
+          "relativeAlt": 0,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "headingType": "Auto",
+          "velocity": 5,
+          "POI": {
+            "geoPoint": {
+              "lat": 32.5,
+              "lon": 34.5,
+              "alt": 0
+            },
+            "relativeAlt": 0
+          },
+          "actions": [
+            {
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "action": {
+                "startScanYaw": 0,
+                "finishScanYaw": 90,
+                "relType": "North",
+                "pitch": -45
+              },
+              "startConditions": {
+                "velocity": 0
+              },
+              "actionId": "action-id1",
+              "endConditions": {
+                "velocity": 0
+              }
+            }
+          ],
+          "00": "string"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "todo": {},
+    "routeId": {
+      "type": "string",
+      "example": "abcdef"
+    },
+    "totalValue": {
+      "type": "number",
+      "minimum": 0,
+      "example": 200
+    },
+    "actionPoints": {
+      "type": "array",
+      "description": "List of points",
+      "items": {
+        "type": "object",
+        "description": "Waypoint parameters including the actions to be taken at each point",
+        "properties": {
+          "geoPoint": {
+            "$ref": "../../General/GEOPOINT_3D_SHORT.v1.json"
+          },
+          "relativeAlt": {
+            "type": "number",
+            "description": "The alt above takeoff alt",
+            "example": 0
+          },
+          "relativeHeadingType": {
+            "type": "string",
+            "enum": [
+              "North",
+              "Body"
+            ],
+            "description": "How will the drone heading act \nhttps://developer.dji.com/onboard-api-reference/namespaceDJI_1_1OSDK.html#ac4724285e46cb2e9a321076562c6edbc\n",
+            "example": "North"
+          },
+          "heading": {
+            "type": "number",
+            "description": "Heading according to heading type",
+            "example": 0
+          },
+          "headingType": {
+            "type": "string",
+            "enum": [
+              "Auto",
+              "Fixed",
+              "Manual",
+              "Custom",
+              "POI",
+              "GimbalYawFollow"
+            ],
+            "example": "Auto"
+          },
+          "velocity": {
+            "type": "number",
+            "description": "Velocity in m/s",
+            "example": 5,
+            "maximum": 15,
+            "minimum": 0.1
+          },
+          "POI": {
+            "type": "object",
+            "description": "Used if heading type is POI",
+            "properties": {
+              "geoPoint": {
+                "$ref": "../../General/GEOPOINT_3D_SHORT.v1.json"
+              },
+              "relativeAlt": {
+                "type": "number",
+                "example": 0
+              }
+            }
+          },
+          "actions": {
+            "type": "array",
+            "description": "The actions will excecuted at the array order and the start / end conditions",
+            "items": {
+              "type": "object",
+              "description": "The action data",
+              "properties": {
+                "actionFor": {
+                  "type": "string",
+                  "enum": [
+                    "Vehicle",
+                    "Gimbal",
+                    "Camera",
+                    "Sensor"
+                  ],
+                  "description": "The device to act ",
+                  "example": "Gimbal"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "maneuver",
+                    "Scan"
+                  ],
+                  "description": "Manuever - action for flight\nScan - action for gimbal",
+                  "example": "Scan"
+                },
+                "action": {
+                  "oneOf": [
+                    {
+                      "properties": {
+                        "startScanYaw": {
+                          "type": "number",
+                          "description": "The angle to start scan",
+                          "example": 0
+                        },
+                        "finishScanYaw": {
+                          "type": "number",
+                          "description": "The angle to stop scan",
+                          "example": 90
+                        },
+                        "relType": {
+                          "type": "string",
+                          "enum": [
+                            "North",
+                            "Body"
+                          ]
+                        },
+                        "pitch": {
+                          "type": "number",
+                          "example": -45
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "startYaw": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "finishYaw": {
+                          "type": "number",
+                          "example": 120
+                        },
+                        "relType": {
+                          "type": "string",
+                          "enum": [
+                            "North",
+                            "Body",
+                            "WithGimbal"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "waypointsMissionAction": {
+                          "type": "string",
+                          "enum": [
+                            "Pause",
+                            "Resume",
+                            "Stop",
+                            "Start"
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "startConditions": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "velocity": {
+                          "type": "number",
+                          "description": "When Reached velocity +- tollerance"
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "altitude": {
+                          "type": "number",
+                          "description": "When Reached altitude +- tollerance"
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "timeFromRelativeAction": {
+                          "type": "number",
+                          "description": "Time passed from relative action defined in relativeActionId and in accordance with relWithAction definition"
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "relWithAction": {
+                          "type": "string",
+                          "description": "What is the action relation with the relative action status",
+                          "enum": [
+                            "startToStart",
+                            "startToEnd",
+                            "endToEnd",
+                            "endToStart"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "pointReached": {
+                          "type": "boolean",
+                          "description": "Waypoint reached +- tellerance"
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "relativeActionId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "actionId": {
+                  "type": "string",
+                  "example": "action-id1",
+                  "default": "action-id1"
+                },
+                "endConditions": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "velocity": {
+                          "type": "number",
+                          "description": "When Reached velocity +- tollerance"
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "altitude": {
+                          "type": "number",
+                          "description": "When Reached altitude +- tollerance"
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "timeFromRelativeAction": {
+                          "type": "number",
+                          "description": "Time passed from relative action defined in relativeActionId and in accordance with relWithAction definition",
+                          "example": 10,
+                          "format": "float",
+                          "default": 0
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "relWithAction": {
+                          "type": "string",
+                          "description": "What is the action relation with the relative action status",
+                          "enum": [
+                            "startToStart",
+                            "startToEnd",
+                            "endToEnd",
+                            "endToStart"
+                          ],
+                          "example": "startToStart",
+                          "default": "startToStart"
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "pointReached": {
+                          "type": "boolean",
+                          "description": "Waypoint reached +- tellerance"
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "relativeActionId": {
+                          "type": "string",
+                          "example": "action-id1"
+                        }
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "00": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

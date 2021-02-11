@@ -1,0 +1,547 @@
+{
+  "title": "AUTONOMUS_ROUTE",
+  "type": "object",
+  "x-examples": {
+    "example-1": {
+      "id": "id-1",
+      "type": "Security",
+      "actionPoints": [
+        {
+          "id": "point-id-1",
+          "geoPoint": {
+            "lat": 32,
+            "lon": 35,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [
+            {
+              "actionId": "action-id-1",
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "startConditions": {
+                "pointReached": true
+              },
+              "endConditions": {
+                "timeFromRelativeAction": 10,
+                "relWithAction": "startToStart",
+                "relativeActionId": "string"
+              },
+              "action": {
+                "startScanYaw": -10,
+                "finishScanYaw": -90,
+                "relType": "North",
+                "pitch": -60
+              }
+            }
+          ],
+          "POI": {
+            "geoPoint": {
+              "lat": 32,
+              "lon": 35,
+              "alt": 50
+            }
+          }
+        },
+        {
+          "id": "point-id-2",
+          "geoPoint": {
+            "lat": 32.001,
+            "lon": 35.001,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [
+            {
+              "actionId": "action-id-2",
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "startConditions": {
+                "timeFromRelativeAction": 20,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-1"
+              },
+              "endConditions": {
+                "timeFromRelativeAction": 10,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "action": {
+                "startScanYaw": 10,
+                "finishScanYaw": 80,
+                "relType": "North",
+                "pitch": -30
+              }
+            }
+          ],
+          "POI": {
+            "geoPoint": {
+              "lat": 32.001,
+              "lon": 35.001,
+              "alt": 50
+            }
+          }
+        }
+      ]
+    },
+    "example-2": {
+      "id": "id-1",
+      "type": "Security",
+      "actionPoints": [
+        {
+          "id": "point-id-1",
+          "geoPoint": {
+            "lat": 32,
+            "lon": 35,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [
+            {
+              "actionId": "action-id-1",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "pointReached": true
+              },
+              "endConditions": {
+                "velocity": 0
+              },
+              "action": {
+                "waypointsMissionAction": "Pause"
+              }
+            },
+            {
+              "actionId": "action-id-2",
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "startConditions": {
+                "timeFromRelativeAction": 1,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-1"
+              },
+              "endConditions": {
+                "timeFromRelativeAction": 5,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "action": {
+                "startScanYaw": -10,
+                "finishScanYaw": -90,
+                "relType": "North",
+                "pitch": -60
+              }
+            },
+            {
+              "actionId": "action-id-3",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "timeFromRelativeAction": 1,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "endConditions": {
+                "timeFromRelativeAction": 1,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-3"
+              },
+              "action": {
+                "waypointsMissionAction": "Resume"
+              }
+            }
+          ],
+          "POI": {
+            "geoPoint": {
+              "lat": 32,
+              "lon": 35,
+              "alt": 50
+            }
+          }
+        },
+        {
+          "id": "point-id-2",
+          "geoPoint": {
+            "lat": 32.001,
+            "lon": 35.001,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [
+            {
+              "actionId": "action-id-1",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "pointReached": true
+              },
+              "endConditions": {
+                "velocity": 0
+              },
+              "action": {
+                "waypointsMissionAction": "Pause"
+              }
+            },
+            {
+              "actionId": "action-id-2",
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "startConditions": {
+                "timeFromRelativeAction": 1,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-1"
+              },
+              "endConditions": {
+                "timeFromRelativeAction": 5,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "action": {
+                "startScanYaw": -10,
+                "finishScanYaw": -90,
+                "relType": "North",
+                "pitch": -60
+              }
+            }
+          ],
+          "POI": {
+            "geoPoint": {
+              "lat": 32.001,
+              "lon": 35.001,
+              "alt": 50
+            }
+          }
+        }
+      ]
+    },
+    "example-3": {
+      "id": "id-1",
+      "type": "Security",
+      "actionPoints": [
+        {
+          "id": "point-id-1",
+          "geoPoint": {
+            "lat": 32,
+            "lon": 35,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [
+            {
+              "actionId": "action-id-1",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "pointReached": true
+              },
+              "endConditions": {
+                "pointReached": true,
+                "velocity": 0
+              },
+              "action": {
+                "waypointsMissionAction": "Pause"
+              }
+            },
+            {
+              "actionId": "action-id-2",
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "startConditions": {
+                "timeFromRelativeAction": 10,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-1"
+              },
+              "endConditions": {
+                "timeFromRelativeAction": 10,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "action": {
+                "startScanYaw": 30,
+                "finishScanYaw": 90,
+                "relType": "North",
+                "pitch": -50
+              }
+            },
+            {
+              "actionId": "action-id-3",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "timeFromRelativeAction": 5,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "endConditions": {
+                "velocity": 5
+              },
+              "action": {
+                "waypointsMissionAction": "Resume"
+              }
+            }
+          ],
+          "POI": {
+            "geoPoint": {
+              "lat": 32,
+              "lon": 35,
+              "alt": 50
+            }
+          }
+        },
+        {
+          "id": "point-id-2",
+          "geoPoint": {
+            "lat": 32.001,
+            "lon": 35.001,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [
+            {
+              "actionId": "action-id-1",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "pointReached": true
+              },
+              "endConditions": {
+                "velocity": 0
+              },
+              "action": {
+                "waypointsMissionAction": "Pause"
+              }
+            },
+            {
+              "actionId": "action-id-2",
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "startConditions": {
+                "timeFromRelativeAction": 5,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-1"
+              },
+              "endConditions": {
+                "timeFromRelativeAction": 20,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "action": {
+                "startScanYaw": -90,
+                "finishScanYaw": 90,
+                "relType": "North",
+                "pitch": -30
+              }
+            }
+          ],
+          "POI": {
+            "geoPoint": {
+              "lat": 32.001,
+              "lon": 35.001,
+              "alt": 50
+            }
+          }
+        }
+      ]
+    },
+    "3 points, point 2 without actions": {
+      "id": "id-1",
+      "type": "Security",
+      "actionPoints": [
+        {
+          "id": "point-id-1",
+          "geoPoint": {
+            "lat": 32,
+            "lon": 35,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [
+            {
+              "actionId": "action-id-1",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "pointReached": true
+              },
+              "endConditions": {
+                "pointReached": true,
+                "velocity": 10
+              },
+              "action": {
+                "waypointsMissionAction": "Pause"
+              }
+            },
+            {
+              "actionId": "action-id-2",
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "startConditions": {
+                "timeFromRelativeAction": 10,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-1"
+              },
+              "endConditions": {
+                "velocity": 10,
+                "timeFromRelativeAction": 10,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "action": {
+                "startScanYaw": 30,
+                "finishScanYaw": 90,
+                "relType": "North",
+                "pitch": -50
+              }
+            },
+            {
+              "actionId": "action-id-3",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "timeFromRelativeAction": 5,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "endConditions": {
+                "velocity": 15
+              },
+              "action": {
+                "waypointsMissionAction": "Resume"
+              }
+            }
+          ],
+          "POI": {
+            "geoPoint": {
+              "lat": 32,
+              "lon": 35,
+              "alt": 50
+            }
+          }
+        },
+        {
+          "id": "point-id-2",
+          "geoPoint": {
+            "lat": 32.001,
+            "lon": 35.001,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [],
+          "POI": {
+            "geoPoint": {
+              "lat": 32.001,
+              "lon": 35.001,
+              "alt": 50
+            }
+          }
+        },
+        {
+          "id": "point-id-2",
+          "geoPoint": {
+            "lat": 32.001,
+            "lon": 35.002,
+            "alt": 10
+          },
+          "relativeAlt": 20,
+          "relativeHeadingType": "North",
+          "heading": 0,
+          "velocity": 5,
+          "headingType": "Auto",
+          "actions": [
+            {
+              "actionId": "action-id-1",
+              "actionFor": "Vehicle",
+              "type": "maneuver",
+              "startConditions": {
+                "pointReached": true
+              },
+              "endConditions": {
+                "velocity": 10
+              },
+              "action": {
+                "waypointsMissionAction": "Pause"
+              }
+            },
+            {
+              "actionId": "action-id-2",
+              "actionFor": "Gimbal",
+              "type": "Scan",
+              "startConditions": {
+                "timeFromRelativeAction": 5,
+                "relWithAction": "endToStart",
+                "relativeActionId": "action-id-1"
+              },
+              "endConditions": {
+                "velocity": 10,
+                "timeFromRelativeAction": 20,
+                "relWithAction": "startToStart",
+                "relativeActionId": "action-id-2"
+              },
+              "action": {
+                "startScanYaw": -90,
+                "finishScanYaw": 90,
+                "relType": "North",
+                "pitch": -40
+              }
+            }
+          ],
+          "POI": {
+            "geoPoint": {
+              "lat": 32.001,
+              "lon": 35.001,
+              "alt": 50
+            }
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "id-1"
+    },
+    "type": {
+      "type": "string",
+      "example": "Security"
+    },
+    "actionPoints": {
+      "type": "array",
+      "items": {
+        "$ref": "./AUTONOMOUS_POINT.v1.json"
+      }
+    }
+  }
+}
