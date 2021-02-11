@@ -1,0 +1,14 @@
+{
+  "title": "flightRoute",
+  "type": "object",
+  "properties": {
+    "pointsOfRoute": {
+      "type": "array",
+      "items": {
+        "$ref": "./pointOfRoute.v1.json"
+      }
+    }
+  },
+  "description": "The flight route that the drone is flying or plan to fly",
+  "x-examples": {}
+}

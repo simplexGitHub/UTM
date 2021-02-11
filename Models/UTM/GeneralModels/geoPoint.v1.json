@@ -1,0 +1,23 @@
+{
+  "title": "geoPoint",
+  "type": "object",
+  "description": "General Geo Point model. Geo point refers to ground location",
+  "properties": {
+    "lon": {
+      "type": "number",
+      "description": "Longitude in Ds egrees and decimal point at best accuracy\nE.G - 32.45454"
+    },
+    "lat": {
+      "type": "number",
+      "description": "Latitude in Ds egrees and decimal point at best accuracy\nE.G - 35.23456"
+    },
+    "alt": {
+      "type": "number",
+      "description": "Geo point ground altitude ASL\nIf not sent - will considered as 0 in the UTM"
+    }
+  },
+  "required": [
+    "lon",
+    "lat"
+  ]
+}
