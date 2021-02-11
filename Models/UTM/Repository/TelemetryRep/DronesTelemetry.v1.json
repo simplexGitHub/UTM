@@ -1,0 +1,21 @@
+{
+  "title": "DronesTelemetry",
+  "type": "object",
+  "description": "Array of all drones telemetry belongs to the USS.\nEvery message of DronesTelemetry should include the full current drones status meaning that no history is needed on the recieving side regarding the telemetry (no persitancy)",
+  "properties": {
+    "USS_ID": {
+      "type": "string",
+      "description": "The ID of the USS controlling the drones"
+    },
+    "drones": {
+      "type": "array",
+      "items": {
+        "$ref": "./DroneTelemetry.v1.json"
+      }
+    }
+  },
+  "required": [
+    "USS_ID",
+    "drones"
+  ]
+}

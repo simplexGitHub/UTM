@@ -1,0 +1,31 @@
+{
+  "title": "pointOfRoute",
+  "type": "object",
+  "properties": {
+    "geoPoint": {
+      "$ref": "./geoPoint.v1.json"
+    },
+    "altASL": {
+      "type": "number",
+      "description": "Altitude in meters ASL"
+    },
+    "altATP": {
+      "type": "number",
+      "description": "Altitude in meters Above TakeOff Point"
+    },
+    "velocity": {
+      "type": "number",
+      "description": "Velocity at point \nThe drone will target to gain the velocity at the point and start the leg from the point at the defined velocity\nIf 2 points in the leg have the same velocity means that the drone will keep constant defined velocity"
+    },
+    "idleTimeAtPoint": {
+      "type": "number",
+      "description": "If the drone will hold at point before continue with route - the time of hold\nIf field not sent - no hold at point"
+    }
+  },
+  "required": [
+    "geoPoint",
+    "altASL",
+    "velocity"
+  ],
+  "description": "Point that is part of a flight route"
+}
