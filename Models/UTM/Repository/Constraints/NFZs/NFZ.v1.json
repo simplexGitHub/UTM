@@ -1,0 +1,54 @@
+{
+  "title": "NFZ",
+  "type": "object",
+  "description": "Nfz is the restricted volume for crossing by drones.\nNfz can be static and can be dynamic.\nA static NFZ is a constraint area that does not represent air vehicle flight.\nDynamiv NFZ is the area restricted by air vehicle that may allow only the specific air vehicle to cross.",
+  "properties": {
+    "nfzId": {
+      "type": "string",
+      "description": "Unique NFZ ID within the UTM scope or other system scope.\nIn order to make other system nfz id unique at the UTM the other system id will get a prefix of the USS id that own the nfz"
+    },
+    "minAlt": {
+      "type": "number",
+      "description": "The min altitude of the NFZ in meters ASL.\nIf the field is not sent the min alt is considered as the ground level (no min alt)"
+    },
+    "maxAlt": {
+      "type": "number",
+      "description": "The max altitude of the NFZ in meters ASL.\nIf the field is not sent the max alt is considered as unlimited (no max alt) meaning the the area can't be crossed from above."
+    },
+    "nfzPolygon": {
+      "type": "array",
+      "description": "The polygon geo points.\nThe alt of each point is disregards and only min and max NFZ altitude is considered",
+      "items": {
+        "$ref": "../../../GeneralModels/geoPoint.v1.json"
+      }
+    },
+    "allowedId": {
+      "type": "string",
+      "description": "The drone Id that is allowed to cross or use the NFZ area for flight.\nIf the field not sent then no drone is allowed"
+    },
+    "nfzType": {
+      "type": "string",
+      "enum": [
+        "Static",
+        "Dynamic"
+      ],
+      "description": "The NFZ type - static or dynamic.\nIf the field not sent then \"Static\" is considered by the UTM"
+    },
+    "description": {
+      "type": "string",
+      "description": "Free text to describe the NFZ"
+    },
+    "origin": {
+      "type": "string",
+      "enum": [
+        "UTM",
+        "USS"
+      ],
+      "description": "The NFZ belongs to specific USS or belongs to the UTM area"
+    }
+  },
+  "required": [
+    "nfzId",
+    "nfzPolygon"
+  ]
+}
