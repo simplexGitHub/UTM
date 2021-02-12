@@ -1,13 +1,27 @@
 {
   "title": "ASYNC_RESPONSE",
   "type": "object",
+  "description": "The basic response for requests",
   "properties": {
     "success": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "If true then the request succeeded"
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "description": "A string to describe the response.\nIf success = false then a description if the cause can be added.\nIf no description - blank"
     },
-    "data": {}
-  }
+    "errorMessage": {
+      "type": "string",
+      "description": "A pre defined error enums in the level of the general response (could be more specific requests levels of errors)\n",
+      "enum": [
+        "GeneralError",
+        "JsonNotValid"
+      ]
+    }
+  },
+  "required": [
+    "success",
+    "description"
+  ]
 }

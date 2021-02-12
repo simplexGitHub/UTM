@@ -2,8 +2,21 @@
   "title": "NFZs",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
+    "version": {
+      "type": "number",
+      "description": "The NFZs full updated data version.\nEach time there is an update to the NFZs picture the version will be incremented as the new timestamp"
+    },
+    "NFZs": {
+      "type": "array",
+      "description": "Array of NFZs",
+      "items": {
+        "$ref": "./NFZ.v1.json"
+      }
     }
-  }
+  },
+  "required": [
+    "version",
+    "NFZs"
+  ],
+  "description": "The full NFZs picture of the UTM with the version.\nThe version will change only if any change to the last NFZs version was done meaning - same version same NFZs picture."
 }
