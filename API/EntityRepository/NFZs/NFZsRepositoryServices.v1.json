@@ -113,6 +113,69 @@
           }
         }
       }
+    },
+    "/getCurrentNFZs": {
+      "post": {
+        "summary": "",
+        "operationId": "post-getCurrentNFZs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "If success true then return the NFZs object. If succes false then return only \"response\"",
+                  "properties": {
+                    "response": {
+                      "$ref": "../../../Models/General/ASYNC_RESPONSE.v1.json"
+                    },
+                    "NFZs": {
+                      "$ref": "../../../Models/UTM/Repository/Constraints/NFZs/NFZs.v1.json"
+                    }
+                  },
+                  "required": [
+                    "response"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "response": {
+                        "success": true,
+                        "description": "string",
+                        "errorMessage": "GeneralError"
+                      },
+                      "NFZs": {
+                        "version": 0,
+                        "NFZs": [
+                          {
+                            "nfzId": "string",
+                            "minAlt": 0,
+                            "maxAlt": 0,
+                            "nfzPolygon": [
+                              {
+                                "lon": 0,
+                                "lat": 0,
+                                "alt": 0
+                              }
+                            ],
+                            "allowedId": "string",
+                            "nfzType": "Static",
+                            "description": "string",
+                            "origin": "UTM"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Request for the most updated NFZs picture of the UTM. One should use getCurrentVersion before using that request in order to save network and proccesing. If a system hold the last version then no need to use that request."
+      }
     }
   },
   "components": {
