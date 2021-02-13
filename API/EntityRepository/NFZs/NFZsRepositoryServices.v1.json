@@ -12,8 +12,8 @@
   "paths": {
     "/addNfz": {
       "post": {
-        "summary": "Create New User",
-        "operationId": "post-user",
+        "summary": "Create New NFZ",
+        "operationId": "post-addNFZ",
         "responses": {
           "200": {
             "description": "NFZ Created",
@@ -22,27 +22,9 @@
                 "schema": {
                   "$ref": "../../../Models/General/ASYNC_RESPONSE.v1.json"
                 },
-                "examples": {
-                  "New User Bob Fellow": {
-                    "value": {
-                      "id": 12,
-                      "firstName": "Bob",
-                      "lastName": "Fellow",
-                      "email": "bob.fellow@gmail.com",
-                      "dateOfBirth": "1996-08-24",
-                      "emailVerified": false,
-                      "createDate": "2020-11-18"
-                    }
-                  }
-                }
+                "examples": {}
               }
             }
-          },
-          "400": {
-            "description": "Missing Required Information"
-          },
-          "409": {
-            "description": "Email Already Taken"
           }
         },
         "requestBody": {
@@ -74,66 +56,66 @@
           },
           "description": "Post the necessary fields for the API to create a new NFZ"
         },
-        "description": "Create a new NFZ at the UTM "
+        "description": "Create a new NFZ at the UTM ",
+        "parameters": []
       },
       "parameters": []
+    },
+    "/deleteNFZ/{id}": {
+      "post": {
+        "summary": "",
+        "operationId": "post-deleteNFZ",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete NFZ"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "description": "The NFZ Id",
+          "required": true
+        }
+      ]
+    },
+    "/getCurrNFZsVersion": {
+      "post": {
+        "summary": "",
+        "operationId": "post-getCurrNFZsVersion",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string",
+                      "description": "If the response success = true then the version will be sent"
+                    },
+                    "response": {
+                      "$ref": "../../../Models/General/ASYNC_RESPONSE.v1.json"
+                    }
+                  },
+                  "required": [
+                    "response"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
-    "schemas": {
-      "User": {
-        "title": "User",
-        "type": "object",
-        "description": "",
-        "x-examples": {
-          "Alice Smith": {
-            "id": 142,
-            "firstName": "Alice",
-            "lastName": "Smith",
-            "email": "alice.smith@gmail.com",
-            "dateOfBirth": "1997-10-31",
-            "emailVerified": true,
-            "signUpDate": "2019-08-24"
-          }
-        },
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier for the given user."
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date",
-            "example": "1997-10-31"
-          },
-          "emailVerified": {
-            "type": "boolean",
-            "description": "Set to true if the user's email has been verified."
-          },
-          "createDate": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the user was created."
-          }
-        },
-        "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "email",
-          "emailVerified"
-        ]
-      }
-    }
+    "schemas": {}
   }
 }
