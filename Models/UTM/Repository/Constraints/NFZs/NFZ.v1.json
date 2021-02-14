@@ -42,13 +42,15 @@
       "type": "string",
       "enum": [
         "UTM",
-        "USS"
+        "USS",
+        "OtherUTM"
       ],
       "description": "The NFZ belongs to specific USS or belongs to the UTM area"
     }
   },
   "required": [
     "nfzId",
-    "nfzPolygon"
+    "nfzPolygon",
+    "origin"
   ]
 }
