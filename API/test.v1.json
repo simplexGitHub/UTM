@@ -1,0 +1,221 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "test",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3456"
+    }
+  ],
+  "paths": {
+    "/api/utm_telemtry_repository": {
+      "post": {
+        "summary": "",
+        "operationId": "post-api-utm_telemtry_repository",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../Models/UTM/Repository/TelemetryRep/DronesTelemetry.v1.json"
+              },
+              "examples": {
+                "FlightOps": {
+                  "value": {
+                    "USS_ID": "FlightOps",
+                    "drones": [
+                      {
+                        "droneId": "1",
+                        "droneName": "drone1FlightOps",
+                        "telemetryOriginTimestamp": 0,
+                        "altASL": 0,
+                        "altATP": 0,
+                        "takeOffPoint": {
+                          "lon": 0,
+                          "lat": 0,
+                          "alt": 0
+                        },
+                        "velocity": 0,
+                        "heading": 0,
+                        "GPS_Status": "FIX",
+                        "flightMode": "Manual",
+                        "flightStatus": "NotActive",
+                        "isControlled ": true,
+                        "flightRoute": {
+                          "pointsOfRoute": [
+                            {
+                              "geoPoint": {
+                                "lon": 0,
+                                "lat": 0,
+                                "alt": 0
+                              },
+                              "altASL": 0,
+                              "altATP": 0,
+                              "velocity": 0,
+                              "idleTimeAtPoint": 0
+                            }
+                          ]
+                        },
+                        "droneType": "genPixhawk",
+                        "energy": 0,
+                        "timeLeftForStartLand": 0,
+                        "nextRoutePoint": 0,
+                        "location": {
+                          "lon": 0,
+                          "lat": 0,
+                          "alt": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "Airwayz": {
+                  "value": {
+                    "USS_ID": "Airwayz",
+                    "drones": [
+                      {
+                        "droneId": "1",
+                        "droneName": "drone1Airwayz",
+                        "telemetryOriginTimestamp": 0,
+                        "altASL": 0,
+                        "altATP": 0,
+                        "takeOffPoint": {
+                          "lon": 0,
+                          "lat": 0,
+                          "alt": 0
+                        },
+                        "velocity": 0,
+                        "heading": 0,
+                        "GPS_Status": "FIX",
+                        "flightMode": "Manual",
+                        "flightStatus": "NotActive",
+                        "isControlled ": true,
+                        "flightRoute": {
+                          "pointsOfRoute": [
+                            {
+                              "geoPoint": {
+                                "lon": 0,
+                                "lat": 0,
+                                "alt": 0
+                              },
+                              "altASL": 0,
+                              "altATP": 0,
+                              "velocity": 0,
+                              "idleTimeAtPoint": 0
+                            }
+                          ]
+                        },
+                        "droneType": "genPixhawk",
+                        "energy": 0,
+                        "timeLeftForStartLand": 0,
+                        "nextRoutePoint": 0,
+                        "location": {
+                          "lon": 0,
+                          "lat": 0,
+                          "alt": 0
+                        }
+                      },
+                      {
+                        "droneId": "2",
+                        "droneName": "drone2Airwayz",
+                        "telemetryOriginTimestamp": 0,
+                        "altASL": 0,
+                        "altATP": 0,
+                        "takeOffPoint": {
+                          "lon": 0,
+                          "lat": 0,
+                          "alt": 0
+                        },
+                        "velocity": 0,
+                        "heading": 0,
+                        "GPS_Status": "FIX",
+                        "flightMode": "Manual",
+                        "flightStatus": "NotActive",
+                        "isControlled ": true,
+                        "flightRoute": {
+                          "pointsOfRoute": [
+                            {
+                              "geoPoint": {
+                                "lon": 0,
+                                "lat": 0,
+                                "alt": 0
+                              },
+                              "altASL": 0,
+                              "altATP": 0,
+                              "velocity": 0,
+                              "idleTimeAtPoint": 0
+                            }
+                          ]
+                        },
+                        "droneType": "genPixhawk",
+                        "energy": 0,
+                        "timeLeftForStartLand": 0,
+                        "nextRoutePoint": 0,
+                        "location": {
+                          "lon": 0,
+                          "lat": 0,
+                          "alt": 0
+                        }
+                      },
+                      {
+                        "droneId": "3",
+                        "droneName": "drone3Airwayz",
+                        "telemetryOriginTimestamp": 0,
+                        "altASL": 0,
+                        "altATP": 0,
+                        "takeOffPoint": {
+                          "lon": 0,
+                          "lat": 0,
+                          "alt": 0
+                        },
+                        "velocity": 0,
+                        "heading": 0,
+                        "GPS_Status": "FIX",
+                        "flightMode": "Manual",
+                        "flightStatus": "NotActive",
+                        "isControlled ": true,
+                        "flightRoute": {
+                          "pointsOfRoute": [
+                            {
+                              "geoPoint": {
+                                "lon": 0,
+                                "lat": 0,
+                                "alt": 0
+                              },
+                              "altASL": 0,
+                              "altATP": 0,
+                              "velocity": 0,
+                              "idleTimeAtPoint": 0
+                            }
+                          ]
+                        },
+                        "droneType": "genPixhawk",
+                        "energy": 0,
+                        "timeLeftForStartLand": 0,
+                        "nextRoutePoint": 0,
+                        "location": {
+                          "lon": 0,
+                          "lat": 0,
+                          "alt": 0
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
