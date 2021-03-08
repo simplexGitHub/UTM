@@ -66,7 +66,7 @@
         "Hover"
       ]
     },
-    "controlled ": {
+    "isControlled ": {
       "type": "boolean",
       "description": "Is the drone controlled by the USS or the USS has no control over the drone\nThe control status defined by the USS internal logic"
     },
@@ -76,10 +76,10 @@
     "droneType": {
       "type": "string",
       "enum": [
-        "M-300",
-        "M-600",
         "genPixhawk",
-        "genVTOL"
+        "genVTOL",
+        "M300",
+        "M600"
       ],
       "description": "The drone type from a list\nThe drone type will influence the distances needed between that drone and others in the UTM area"
     },
@@ -88,12 +88,15 @@
       "description": "Energy left in %"
     },
     "timeLeftForStartLand": {
-      "type": "string",
+      "type": "number",
       "description": "The time left for flight in the current energy level"
     },
     "nextRoutePoint": {
       "type": "number",
       "description": "The route point that the drone is flying to in the route (If the drone is in route)\nThe field is mandatory so if the drone is not flying to no point the value should be -1"
+    },
+    "location": {
+      "$ref": "../../GeneralModels/geoPoint.v1.json"
     }
   },
   "required": [
@@ -106,7 +109,7 @@
     "GPS_Status",
     "flightMode",
     "flightStatus",
-    "controlled ",
+    "isControlled ",
     "droneType",
     "energy",
     "nextRoutePoint"
