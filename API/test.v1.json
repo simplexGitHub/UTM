@@ -51,9 +51,31 @@
                           "pointsOfRoute": [
                             {
                               "geoPoint": {
-                                "lon": 0,
-                                "lat": 0,
-                                "alt": 0
+                                "lon": 35,
+                                "lat": 32,
+                                "alt": 1000
+                              },
+                              "altASL": 0,
+                              "altATP": 0,
+                              "velocity": 0,
+                              "idleTimeAtPoint": 0
+                            },
+                            {
+                              "geoPoint": {
+                                "lon": 36,
+                                "lat": 32,
+                                "alt": 1000
+                              },
+                              "altASL": 0,
+                              "altATP": 0,
+                              "velocity": 0,
+                              "idleTimeAtPoint": 0
+                            },
+                            {
+                              "geoPoint": {
+                                "lon": 37,
+                                "lat": 33,
+                                "alt": 1000
                               },
                               "altASL": 0,
                               "altATP": 0,
@@ -67,9 +89,9 @@
                         "timeLeftForStartLand": 0,
                         "nextRoutePoint": 0,
                         "location": {
-                          "lon": 0,
-                          "lat": 0,
-                          "alt": 0
+                          "lon": 35,
+                          "lat": 32,
+                          "alt": 1000
                         }
                       }
                     ]

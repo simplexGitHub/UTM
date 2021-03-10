@@ -66,7 +66,7 @@
         "Hover"
       ]
     },
-    "isControlled ": {
+    "isControlled": {
       "type": "boolean",
       "description": "Is the drone controlled by the USS or the USS has no control over the drone\nThe control status defined by the USS internal logic"
     },
@@ -109,7 +109,7 @@
     "GPS_Status",
     "flightMode",
     "flightStatus",
-    "isControlled ",
+    "isControlled",
     "droneType",
     "energy",
     "nextRoutePoint"

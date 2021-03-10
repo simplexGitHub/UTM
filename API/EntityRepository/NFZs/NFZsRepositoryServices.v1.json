@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "http://localhost:4567"
     }
   ],
   "paths": {
@@ -31,7 +31,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "../../../Models/UTM/Repository/Constraints/NFZs/NFZs.v1.json"
+                "$ref": "../../../Models/UTM/Repository/Constraints/NFZs/NFZ.v1.json"
               },
               "examples": {}
             },
@@ -67,7 +67,14 @@
         "operationId": "post-deleteNFZ",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../../Models/General/ASYNC_RESPONSE.v1.json"
+                }
+              }
+            }
           }
         },
         "description": "Delete NFZ"
@@ -97,8 +104,8 @@
                   "type": "object",
                   "properties": {
                     "version": {
-                      "type": "string",
-                      "description": "If the response success = true then the version will be sent"
+                      "description": "If the response success = true then the version will be sent",
+                      "type": "number"
                     },
                     "response": {
                       "$ref": "../../../Models/General/ASYNC_RESPONSE.v1.json"
@@ -175,6 +182,26 @@
           }
         },
         "description": "Request for the most updated NFZs picture of the UTM. One should use getCurrentVersion before using that request in order to save network and proccesing. If a system hold the last version then no need to use that request."
+      }
+    },
+    "/setNFZsPicture": {
+      "post": {
+        "summary": "",
+        "operationId": "post-setNFZsPicture",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../../Models/UTM/Repository/Constraints/NFZs/NFZsPicture.v1.json"
+              }
+            }
+          }
+        }
       }
     }
   },

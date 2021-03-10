@@ -1,0 +1,15 @@
+{
+  "title": "NFZsPicture",
+  "type": "object",
+  "properties": {
+    "origin": {
+      "type": "string"
+    },
+    "NFZs": {
+      "type": "array",
+      "items": {
+        "$ref": "./NFZ.v1.json"
+      }
+    }
+  }
+}
