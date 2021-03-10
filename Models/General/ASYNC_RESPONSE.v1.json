@@ -18,6 +18,9 @@
         "GeneralError",
         "JsonNotValid"
       ]
+    },
+    "data": {
+      "type": "object"
     }
   },
   "required": [
