@@ -3,7 +3,12 @@
   "type": "object",
   "properties": {
     "origin": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "UTM",
+        "USS",
+        "OtherUTM"
+      ]
     },
     "NFZs": {
       "type": "array",
@@ -11,5 +16,8 @@
         "$ref": "./NFZ.v1.json"
       }
     }
-  }
+  },
+  "required": [
+    "origin"
+  ]
 }

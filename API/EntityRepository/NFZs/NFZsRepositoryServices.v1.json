@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/addNfz": {
+    "/api/addNfz": {
       "post": {
         "summary": "Create New NFZ",
         "operationId": "post-addNFZ",
@@ -61,7 +61,7 @@
       },
       "parameters": []
     },
-    "/deleteNFZ/{id}": {
+    "/api/deleteNFZ/{id}": {
       "post": {
         "summary": "",
         "operationId": "post-deleteNFZ",
@@ -91,7 +91,7 @@
         }
       ]
     },
-    "/getCurrNFZsVersion": {
+    "/api/getCurrNFZsVersion": {
       "post": {
         "summary": "",
         "operationId": "post-getCurrNFZsVersion",
@@ -119,9 +119,10 @@
             }
           }
         }
-      }
+      },
+      "parameters": []
     },
-    "/getCurrentNFZs": {
+    "/api/getCurrentNFZs": {
       "post": {
         "summary": "",
         "operationId": "post-getCurrentNFZs",
@@ -182,9 +183,10 @@
           }
         },
         "description": "Request for the most updated NFZs picture of the UTM. One should use getCurrentVersion before using that request in order to save network and proccesing. If a system hold the last version then no need to use that request."
-      }
+      },
+      "parameters": []
     },
-    "/setNFZsPicture": {
+    "/api/setNFZsPicture": {
       "post": {
         "summary": "",
         "operationId": "post-setNFZsPicture",
@@ -202,7 +204,8 @@
             }
           }
         }
-      }
+      },
+      "parameters": []
     }
   },
   "components": {

@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/api/utm_telemtry_repository": {
+    "/api/utm_drones_data": {
       "post": {
         "summary": "",
         "operationId": "post-api-utm_telemtry_repository",
@@ -46,7 +46,7 @@
                         "GPS_Status": "FIX",
                         "flightMode": "Manual",
                         "flightStatus": "NotActive",
-                        "isControlled ": true,
+                        "isControlled": true,
                         "flightRoute": {
                           "pointsOfRoute": [
                             {
@@ -117,7 +117,7 @@
                         "GPS_Status": "FIX",
                         "flightMode": "Manual",
                         "flightStatus": "NotActive",
-                        "isControlled ": true,
+                        "isControlled": true,
                         "flightRoute": {
                           "pointsOfRoute": [
                             {
@@ -234,7 +234,8 @@
             }
           }
         }
-      }
+      },
+      "parameters": []
     }
   },
   "components": {
